@@ -2,6 +2,19 @@
 #include <stdio.h>
 #include <unistd.h>
 
+int *char_i2int(char *message){
+	whint i= 0;
+	while(message[i])
+		i++;
+	int *rt;
+	rt = (int *)malloc(i * sizeof(int));
+	i = 0;
+	while(message[i]){
+		rt[i] = message[i] - 96;
+		i++;
+	}
+	return rt;
+}
 char *rot(char *message, int rotor, int s_p, int rdm){
 	int i;
 	while(rotor > 0){
@@ -20,7 +33,7 @@ char *rot(char *message, int rotor, int s_p, int rdm){
 			s_p += rdm;
 			i++;
 		}
-		s_p +=12;
+		s_p +=(rdm+3);
 		rotor--;
 	}
 	return message;
@@ -52,7 +65,7 @@ int main(){
 		scanf("%d", &enc_st);
 		printf("choose a number between 1->12\n-");
 		scanf("%d", &rdm);
-		printf("\nencryption done :\n %s ", rot(message, rotor, enc_st, rdm) );
+		printf("\nencryption done :\n %ls ", char_2int(rot(message, rotor, enc_st, rdm)));
 		printf("\nyour decryption codes \n-R: %d\n-S.P: %d\n-R_number: %d", rotor, enc_st, rdm);
 	}
 	else if(choice == 'd'|| choice == 'D'){
