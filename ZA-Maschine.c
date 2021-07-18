@@ -2,6 +2,23 @@
 #include <stdio.h>
 #include <unistd.h>
 
+char *rot(char *message, int rotor, int s_p){
+	int i = 0;
+	while(message[i]){
+		int enc = s_p;
+		if(message[i] <= 'z' && message[i] >= 'a'){
+				while(enc > 0){
+					if(message[i]== 'z')
+						message[i] = 'a';
+					else
+						message[i]++;
+					enc--;
+				}
+		}
+		i++;
+	}
+	return message;
+}
 char *lower(char *code){
 	int i = 0;
 	while(code[i]){
@@ -26,7 +43,7 @@ int main(){
 		scanf("%d", &rotor);
 		printf("select the encryption stating point 1-16\n-");
 		scanf("%d", &enc_st);
-		//printf("encryption done :\n %s", );
+		printf("encryption done :\n %s ", rot(message, rotor, enc_st) );
 		printf("your decryption codes \n-R: %d\n-S.P: %d", rotor, enc_st);
 	}
 	else if(choice == 'd'|| choice == 'D'){
