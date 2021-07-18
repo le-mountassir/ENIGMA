@@ -13,18 +13,24 @@ char *lower(char *code){
 }
 
 int main(){
-	char choice[1];
+	char choice;
+	int rotor;
 	printf("Do you want to ENCr or DECr ? [E] [D]\n");
-	scanf("%s", choice);
-	if(choice[0] == 'e' ||choice[0]=='E'){
+	scanf("%s", &choice);
+	if(choice == 'e' || choice =='E'){
 		char message[500];
 		printf("type the message you want to encrypte\n");
 		scanf("%s", message);
-		printf("%s", lower(message));
+		printf("how many Rotors you want to use? 1-5\n");
+		scanf("%d", &rotor);
 	}
-	else if(choice[0] == 'd'|| choice[0]=='D'){
-		printf("typre the code you want to decrypte\n");
+	else if(choice == 'd'|| choice == 'D'){
 		int code[20];
+		printf("enter the keys:\n Rotors: ")
+		scanf();
+		printf("\nstarting point :")
+		printf("type the code you want to decrypte\n");
+		scanf("%s", code);
 	}
 	else
 		printf("wrong option");
