@@ -15,6 +15,7 @@ char *rot(char *message, int rotor, int s_p){
 					enc--;
 				}
 		}
+		s_p += 4;
 		i++;
 	}
 	return message;
