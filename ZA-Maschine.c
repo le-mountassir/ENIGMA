@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
-int *char_i2int(char *message){
-	whint i= 0;
-	while(message[i])
-		i++;
+int len = 0;
+int *char_2int(char *message){
+	int i;
+	while(message[len])
+		len++;
 	int *rt;
-	rt = (int *)malloc(i * sizeof(int));
+	rt = (int *)malloc(len * sizeof(int));
 	i = 0;
 	while(message[i]){
 		rt[i] = message[i] - 96;
@@ -53,6 +53,7 @@ int main(){
 	int rotor;
 	int enc_st;
 	int rdm;
+	int x = 0;
 	printf("Do you want to ENCr or DECr ? [E] [D]\n");
 	scanf("%s", &choice);
 	if(choice == 'e' || choice =='E'){
@@ -65,7 +66,14 @@ int main(){
 		scanf("%d", &enc_st);
 		printf("choose a number between 1->12\n-");
 		scanf("%d", &rdm);
-		printf("\nencryption done :\n %ls ", char_2int(rot(message, rotor, enc_st, rdm)));
+		int *arra;
+		arra = (int *)malloc(len * sizeof(int));
+		arra = char_2int(rot(message, rotor, enc_st, rdm));
+		for(x; x < len; x++){
+			printf("%d",arra[x]);
+			if(!(x+1 == len))
+				printf(" ,");
+		}
 		printf("\nyour decryption codes \n-R: %d\n-S.P: %d\n-R_number: %d", rotor, enc_st, rdm);
 	}
 	else if(choice == 'd'|| choice == 'D'){
