@@ -2,6 +2,22 @@
 #include <stdio.h>
 #include <unistd.h>
 int len = 0;
+int dec;
+
+char *int_char(int *code){
+	int i = 0;
+	while(code[i]){
+		i++;
+	}
+	char *stri;
+	stri = (char *)malloc((i+1) * sizeof(char));
+	i = 0;
+	while(code[i]){
+		stri[i] = code[i] + 96;
+		i++;
+	}
+	return stri;
+}
 int *char_2int(char *message){
 	int i;
 	while(message[len])
@@ -10,11 +26,12 @@ int *char_2int(char *message){
 	rt = (int *)malloc(len * sizeof(int));
 	i = 0;
 	while(message[i]){
-		rt[i] = message[i] - 96;
+	rt[i] = message[i] - 96;
 		i++;
 	}
 	return rt;
 }
+
 char *rot(char *message, int rotor, int s_p, int rdm){
 	int i;
 	while(rotor > 0){
@@ -77,6 +94,7 @@ int main(){
 		printf("\nyour decryption keys \n-1: %d\n-2: %d\n-3: %d", rotor, enc_st, rdm);
 	}
 	else if(choice == 'd'|| choice == 'D'){
+		dec = 1;
 		int *code;
 		int i = 0;
 		code = (int *)malloc(20 * sizeof(int));
@@ -91,6 +109,7 @@ int main(){
 			scanf("%d", &code[i]);
 			i++;
 		}
+		printf("Decryption : %s",int_char(code));
 	}
 	else
 		printf("wrong option");
