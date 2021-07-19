@@ -95,9 +95,9 @@ int main(){
 	if(choice == 'e' || choice =='E'){
 		dec = 1;
 		char message[500];
-		printf("type the message you want to encrypt\n");
+		printf("type the message you want to encrypt\n----------------------------");
 		scanf("%s", message);
-		printf("how many Rotors you want to use? 3->5\n-");
+		printf("\nhow many Rotors you want to use? 3->5\n-");
 		scanf("%d", &rotor);
 		printf("select the encryption stating point 1->16\n-");
 		scanf("%d", &enc_st);
