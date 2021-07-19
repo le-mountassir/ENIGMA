@@ -80,20 +80,15 @@ int main(){
 		int *code;
 		int i = 0;
 		code = (int *)malloc(20 * sizeof(int));
-		printf("enter the keys:\n 1-: ");
+		printf("enter the keys:\n1-: ");
 		scanf("%d", &rotor);
 		printf("\n2-: ");
 		scanf("%d", &enc_st);
-		printf("\n 3-: ");
+		printf("\n3-: ");
 		scanf("%d", &rdm);
-		printf("type the code you want to decrypte || type [e] when you are done\n");
+		printf("type the code you want to decrypte *press enter after each code*\n");
 		while(i < 5){
 			scanf("%d", &code[i]);
-			i++;
-		}
-		i = 0;
-		while(code[i]){
-			printf("%d, ", code[i]);
 			i++;
 		}
 	}
