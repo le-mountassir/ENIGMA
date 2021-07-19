@@ -64,7 +64,7 @@ int main(){
 		scanf("%d", &rotor);
 		printf("select the encryption stating point 1->16\n-");
 		scanf("%d", &enc_st);
-		printf("choose a number between 1->12\n-");
+		printf("choose a number between 4->12\n-");
 		scanf("%d", &rdm);
 		int *arra;
 		arra = (int *)malloc(len * sizeof(int));
@@ -74,18 +74,28 @@ int main(){
 			if(!(x+1 == len))
 				printf(" ,");
 		}
-		printf("\nyour decryption codes \n-R: %d\n-S.P: %d\n-R_number: %d", rotor, enc_st, rdm);
+		printf("\nyour decryption keys \n-1: %d\n-2: %d\n-3: %d", rotor, enc_st, rdm);
 	}
 	else if(choice == 'd'|| choice == 'D'){
-		int code[20];
-		printf("enter the keys:\n 1-R: ");
+		int *code;
+		int i = 0;
+		code = (int *)malloc(20 * sizeof(int));
+		printf("enter the keys:\n 1-: ");
 		scanf("%d", &rotor);
-		printf("\n2-S.P: ");
+		printf("\n2-: ");
 		scanf("%d", &enc_st);
-		printf("\n 3-R_number: ");
+		printf("\n 3-: ");
 		scanf("%d", &rdm);
-		printf("type the code you want to decrypte\n");
-		scanf("%ls", code);
+		printf("type the code you want to decrypte || type [e] when you are done\n");
+		while(i < 5){
+			scanf("%d", &code[i]);
+			i++;
+		}
+		i = 0;
+		while(code[i]){
+			printf("%d, ", code[i]);
+			i++;
+		}
 	}
 	else
 		printf("wrong option");
