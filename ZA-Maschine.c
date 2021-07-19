@@ -16,6 +16,7 @@ char *int_char(int *code){
 		stri[i] = code[i] + 96;
 		i++;
 	}
+	stri[i] = '\0';
 	return stri;
 }
 int *char_2int(char *message){
