@@ -60,13 +60,13 @@ char *rot(char *message, int rotor, int s_p, int rdm){
 			if(dec)
 				s_p += rdm;
 			else
-				s_p -= rdm;
+				//s_p -= rdm; doesnt work
 			i++;
 		}
 		if(dec)
 			s_p +=(rdm+3);
 		else
-			s_p -=(rdm-3);
+			//s_p -=(rdm-3); doesnt work
 		rotor--;
 	}
 
